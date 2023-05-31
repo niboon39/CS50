@@ -1,21 +1,22 @@
 #include <stdio.h>
 #include <math.h>
 
-int get_input_llamas(int num);
-int get_input_goal(int goal , int num) ;
+int get_input_llamas();
+int get_input_goal( int num) ;
 
 int main(void){
     int num_llamas=0 , goal_llamas=0 , i=0 ;
 
-    num_llamas = get_input_llamas(num_llamas) ;
-    goal_llamas = get_input_goal(goal_llamas , num_llamas);
+    num_llamas = get_input_llamas() ;
+    goal_llamas = get_input_goal(num_llamas);
 
 
-    while (goal_llamas > num_llamas){
+    while (num_llamas < goal_llamas){
         /* code */
-        float pass_away = (float)num_llamas/4.0f , born = (float)num_llamas/3.0f ;
+        int pass_away = num_llamas/ 4;
+        int born = num_llamas / 3  ;
         // printf("Pass away : %f , Born : %f \n" ,round( pass_away) , round(born));
-        num_llamas = num_llamas + round(born-pass_away);
+        num_llamas = num_llamas + born - pass_away;
         i++;
         // printf("Check LLamas : %i \n" , num_llamas) ;
     }
@@ -23,7 +24,8 @@ int main(void){
     printf("Years: %i\n" , i) ;
 }
 
-int get_input_llamas(int num ){
+int get_input_llamas(){
+    int num ;
     do{
         printf("Start size: ") ;
         scanf("%i" , &num) ;
@@ -31,7 +33,8 @@ int get_input_llamas(int num ){
     return num ;
 }
 
-int get_input_goal(int goal , int num){
+int get_input_goal( int num){
+    int goal;
     do{
         printf("End size: ");
         scanf("%i" , &goal) ;
