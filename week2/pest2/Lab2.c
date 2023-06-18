@@ -30,7 +30,7 @@ int main (void){
     // printf("Player 1 : %s , Player 2 : %s \n" , player1 , player2) ; 
 
     int s1 = compute_score(player1) , s2 = compute_score(player2) ;
-
+    // printf("s1 : %i , s2 : %i \n",s1 ,s2) ; 
     if (s1 > s2){ printf("Player 1 wins!"); } 
     else if (s2 > s1){printf("Player 2 wins!"); }
     else{ printf("Tie!");}
@@ -50,17 +50,18 @@ int str_len(char str[50])
 
 int compute_score(char players[50])
 {
-    char alphabet [27] = {'A' , 'B' , 'C' , 'D' , 'E' , 'F' , 'G' , 'H' , 'I' , 
-                          'J' , 'K' , 'L' , 'M' , 'N' , 'O' , 'P' , 'Q' , 'U' , 
-                          'R', 'S' , 'T' , 'U' , 'V' , 'W' , 'X' , 'Y' , 'Z' };
+    char alphabet [26] = {'A' , 'B' , 'C' , 'D' , 'E' , 'F' , 'G' , 'H' , 'I' , 
+                          'J' , 'K' , 'L' , 'M' , 'N' , 'O' , 'P' , 'Q' , 'R' , 
+                          'S', 'T' , 'U' , 'V' , 'W' , 'X' , 'Y' , 'Z'  };
 
-    int point[27] = {1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10} ; 
+    int point[26] = {1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10} ; 
     int score = 0 ;
-    // int index_players[50]
+    int index_players[50] ; 
 
     /* Get the index of players  */
     for (int i = 0 ; i < str_len(players) ; i++){
-        for (int j = 0 ; j < 27 ; j++){
+        // printf("String : %c \n" , players[i]) ; 
+        for (int j = 0 ; j < 26 ; j++){
             if (players[i] == alphabet[j]){
                 // index_players[i] = j ;  // Check index of player 
                 score += point[j] ; 
@@ -74,6 +75,7 @@ int compute_score(char players[50])
     // for (int k = 0 ; k<str_len(players) ; k++){
     //     printf("%i " , index_players[k]) ; 
     // } 
+    // printf("\n"); 
     return score ;
 }
 
